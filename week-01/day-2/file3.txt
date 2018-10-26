@@ -1,0 +1,3 @@
+Check
+
+A check is a type of status check on GitHub. See "Status checks."
