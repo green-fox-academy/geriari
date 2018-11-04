@@ -1,4 +1,4 @@
-export { };
+export { }
 
 function createPalindrome(text: string): string {
   let textOriginalLength: number = text.length;
@@ -8,4 +8,4 @@ function createPalindrome(text: string): string {
   return text;
 }
 
-console.log(createPalindrome('AB'));
+console.log(createPalindrome('GreenFox'));
