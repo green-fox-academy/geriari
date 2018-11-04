@@ -1,4 +1,4 @@
-export{}
+export { }
 
 let name = 'Peter';
 console.log(name); // gives: Peter
