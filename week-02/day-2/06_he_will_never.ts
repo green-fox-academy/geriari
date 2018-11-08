@@ -17,8 +17,6 @@ let hashmap = {
   3: 'say goodbye '
 };
 
-for (let i: number = 0; i < notSoCrypticMessage.length; i++) {
-  out = out + hashmap[notSoCrypticMessage[i]];
-}
+notSoCrypticMessage.forEach((element) => { out += hashmap[element] });
 
 console.log(out)
