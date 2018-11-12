@@ -1,4 +1,5 @@
 'use strict';
+export { };
 
 let a: number = 24;
 let out: number = 0;
@@ -8,7 +9,6 @@ let out: number = 0;
 if (a % 2 == 0) {
     out++;
 }
-
 console.log(out);
 
 let b: number =13;
@@ -25,7 +25,6 @@ if (b < 10) {
 } else {
     out2 = 'More!';
 }
-
 console.log(out2);
 
 let c: number = 123;
@@ -43,7 +42,6 @@ if (credits >= 50 && !isBonus) {
 } else if (credits < 50 && !isBonus) {
     c--;
 }
-
 console.log(c);
 
 let d: number =  9;
@@ -64,5 +62,4 @@ if (d % 4 == 0 && time <= 200) {
 } else {
     out3 = 'Run Forest Run!';
 }
-
 console.log(out3);
