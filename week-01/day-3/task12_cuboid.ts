@@ -1,4 +1,5 @@
 'use strict';
+export { };
 
 let a: number = 30;
 let b: number = 40;
