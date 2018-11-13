@@ -9,5 +9,5 @@
 // Print the percentage of the coding hours in the semester if the average
 // work hours weekly is 52
 
-console.log('A Green Fox attendee spends '+6*5*17+' hours with coding in a semester.');
-console.log('The percentage of coding hours in average is '+6*5/52*100+' percent.');
+console.log('A Green Fox attendee spends ' + 6 * 5 * 17 + ' hours with coding in a semester.');
+console.log('The percentage of coding hours in average is ' + 6 * 5 / 52 * 100 + ' percent.');
