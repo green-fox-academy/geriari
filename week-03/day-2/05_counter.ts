@@ -8,9 +8,11 @@
 
 class Counter {
   count: number;
+  initialValue: number;
 
   constructor(baseCount: number = 0) {
     this.count = Math.round(baseCount);
+    this.initialValue = Math.round(baseCount);
   }
 
   add(increment: number = 1) {
@@ -22,7 +24,7 @@ class Counter {
   }
 
   reset() {
-    this.count = 0;
+    this.count = this.initialValue;
   }
 }
 
