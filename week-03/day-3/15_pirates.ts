@@ -55,13 +55,6 @@ class Pirate {
   }
 }
 
-class Ship {
-  name: string;
-  
-}
-
-
-
 const jack = new Pirate('Jack');
 const morgan = new Pirate('Morgan');
 
