@@ -36,4 +36,12 @@ export class Carrier {
       });
     }
   }
+
+  getStatus(): string {
+    if (this.healthPoint === 0) {
+      return 'It\'s dead Jim :(';
+    } else {
+      return `HP: ${this.healthPoint}, Aircraft count: ${this.aircrafts.length}, Ammo storage: ${this.ammoStore}, Total damage:`
+    }
+  }
 }
