@@ -16,5 +16,4 @@ export class Person {
   getGoal(): void {
     console.log('My goal is: Live for the moment!');
   }
-
 }
