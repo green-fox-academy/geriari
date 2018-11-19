@@ -1,4 +1,7 @@
 import { Plant } from './Plant';
+import { Flower } from './Flower';
+import { Tree } from './Tree';
+
 
 export class Garden {
   name: string;
@@ -8,21 +11,43 @@ export class Garden {
     this.name = name;
   }
 
-  addFlower(color, waterLevel): void {
-
+  addFlower(flower: Flower): void {
+    this.plants.push(flower);
   }
 
-  addTree(color, waterLevel): void {
-
+  addTree(tree: Tree): void {
+    this.plants.push(tree);
   }
 
-  print(name: string): void {
-    console.log(`The ${this.name} garden has these plants:`);
-    console.log();    
+  print(): void {
+    for (let i: number = 0; i < this.plants.length; i++) {
+      if (this.plants[i] instanceof Tree && this.plants[i].needsWater()) {
+        console.log(`The ${this.plants[i].getColor()} tree needs water.`);
+      } else if (this.plants[i] instanceof Tree && !this.plants[i].needsWater()) {
+        console.log(`The ${this.plants[i].getColor()} tree doesn't need water.`);
+      } else if (this.plants[i] instanceof Flower && this.plants[i].needsWater()) {
+        console.log(`The ${this.plants[i].getColor()} flower needs water.`);
+      } else {
+        console.log(`The ${this.plants[i].getColor()} flower doesn't need water.`);
+      }
+    } 
+    console.log('');
+      
   }
 
   water(amount: number): void {
-    //water the plants
-    print(this.name);
+    console.log(`Watering with ${amount}.`);
+    let counter: number = 0;
+    this.plants.forEach((e) => {
+      if (e.needsWater) {
+        counter++;
+      }
+    });
+    this.plants.forEach((e) => {
+      if (e.needsWater) {
+        e.water(amount / counter);
+      }
+    });
+    this.print();
   }
 }
