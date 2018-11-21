@@ -29,7 +29,7 @@ class Car {
   carGasAmount: number;
   capacity: number;
 
-  constructor(licensePlate: string, carGasAmount: number, capacity: number) {
+  constructor(licensePlate: string, carGasAmount: number = 0, capacity: number = 100) {
     this.licensePlate = licensePlate;
     this.carGasAmount = carGasAmount;
     this.capacity = capacity;
