@@ -8,7 +8,7 @@ export class Helicopter extends Vehicle implements Flyable  {
     super.field2 = property2;
     super.field3 = property3;
   }
-  
+
   land() {
     console.log('Hello, szia!');
   }
