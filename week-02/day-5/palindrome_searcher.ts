@@ -10,9 +10,8 @@ function searchPalindrome(s: string): string[] {
   let palindromeList: string[] = [];
   for (let wordLength: number = 3; wordLength <= s.length; wordLength++) {
     for (let scanNumber: number = 0; scanNumber <= s.length - wordLength; scanNumber++) {
-      let actualWord: string = s.slice(scanNumber, scanNumber + wordLength);
-      if (actualWord === actualWord.split("").reverse().join("")) {
-        palindromeList.push(actualWord);
+      if (s.slice(scanNumber, scanNumber + wordLength) === s.slice(scanNumber, scanNumber + wordLength).split('').reverse().join('')) {
+        palindromeList.push(s.slice(scanNumber, scanNumber + wordLength));
       }
     }
   }
@@ -20,3 +19,16 @@ function searchPalindrome(s: string): string[] {
 }
 
 console.log(searchPalindrome(trialString));
+
+// function searchPalindrome(s: string): string[] {
+//   let palindromeList: string[] = [];
+//   for (let wordLength: number = 3; wordLength <= s.length; wordLength++) {
+//     for (let scanNumber: number = 0; scanNumber <= s.length - wordLength; scanNumber++) {
+//       let actualWord: string = s.slice(scanNumber, scanNumber + wordLength);
+//       if (actualWord === actualWord.split("").reverse().join("")) {
+//         palindromeList.push(actualWord);
+//       }
+//     }
+//   }
+//   return palindromeList;
+// }
