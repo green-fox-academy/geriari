@@ -1,12 +1,15 @@
 export abstract class Animal {
   protected name: string;
   protected age: number;
-  protected gender: string;
-  protected eyeColor: string;
 
-  abstract getName();
+  constructor(name: string, age?: number) {
+    this.name = name;
+    this.age = age;
+  }
 
-  abstract breed();
+  getName(): string {
+    return this.name;
+  }
 
-  abstract giveSound();
+  abstract breed(): string;
 }
