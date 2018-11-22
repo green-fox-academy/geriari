@@ -27,6 +27,15 @@ test('Fibonacci function, parameter: 10', t => {
 });
 
 test('Fibonacci function, parameter: -1', t => {
-  t.throws(fibonacci(-1), 'Error: negative number.');
+  t.throws(function() {
+    fibonacci(-1)
+  }, 'Error: negative number.');
+  t.end();
+});
+
+test('Fibonacci function, parameter: 3.5', t => {
+  t.throws(function() {
+    fibonacci(3.5)
+  }, 'Error: not an integer number.');
   t.end();
 });
