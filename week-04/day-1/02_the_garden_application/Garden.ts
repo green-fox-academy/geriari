@@ -40,7 +40,7 @@ export class Garden {
     let counter: number = 0;
     this.plants.forEach((e) => {
       if (e.needsWater) {
-        counter++;
+        counter ++;
       }
     });
     this.plants.forEach((e) => {
