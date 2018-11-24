@@ -20,6 +20,6 @@ export class Plant {
   }
 
   water(water: number): void {
-    this.waterLevel+= water;
+    this.waterLevel += water;
   }
 }
