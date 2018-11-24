@@ -10,6 +10,6 @@ export class Flower extends Plant {
   }
 
   water(water: number): void {
-    this.waterLevel+= 0.75 * water;
+    this.waterLevel += 0.75 * water;
   }
 }
