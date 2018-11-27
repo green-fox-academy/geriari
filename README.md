@@ -7,7 +7,7 @@
 <a href="https://github.com/geriari/geriari.github.io">my first webpage's repo</a><br/>
 <a href="https://geriari.github.io">my first webpage</a><br/>
 <a href="https://github.com/geriari/todo-app.git">todo app</a><br/>
-<a href="https://github.com/geriari/wanderer-typescript">Wanderer app</a><br/>
+<a href="https://github.com/geriari/wanderer-typescript">wanderer app</a><br/>
 <br/>
 <h1>My favorite syllabus</h1><br/>
 <a href="https://github.com/green-fox-academy/really-syllabus">rueppellii-really syllabus repo</a><br/>
