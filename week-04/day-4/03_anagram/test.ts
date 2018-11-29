@@ -6,6 +6,11 @@ test('Anagram test with two strings that are anagrams', t => {
   t.end();
 });
 
+test('Anagram test with two strings that are anagrams', t => {
+  t.ok(areAnagrams('abba', 'baba'));
+  t.end();
+});
+
 test('Anagram test with two strings that are not anagrams', t => {
   t.notEqual(areAnagrams('abba', 'alma'), true);
   t.end();
