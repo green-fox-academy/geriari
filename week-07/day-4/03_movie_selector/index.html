@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Movie selector</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">  </head>
+  <body>
+    <h1>Movie selector</h1>
+    <form name="myform" action="index.html">
+      <div class="genre">
+        <select id="genre" name="genre">
+          <option value="" selected disabled style="display:none">Select a genre</option>
+          <option value="scifi">Sci-fi</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+        </select>
+      </div>
+      <div class="movie">
+        <select id="movie" name="movie">
+          <option value="" selected disabled style="display:none">Select a movie</option>
+          <option class="scifi" value="Moon" style="display:none">Moon</option>
+          <option class="scifi" value="2001 Space odessy" style="display:none">2001 Space odessy</option>
+          <option class="scifi" value="Contact" style="display:none">Contact</option>
+          <option class="drama" value="Darkest hour" style="display:none">Darkest hour</option>
+          <option class="drama" value="There will be blood" style="display:none">There will be blood</option>
+          <option class="drama" value="American beauty" style="display:none">American beauty</option>
+          <option class="comedy" value="Airplane!" style="display:none">Airplane!</option>
+          <option class="comedy" value="Deadpool" style="display:none">Deadpool</option>
+          <option class="comedy" value="Wayne's World" style="display:none">Wayne's World</option>
+        </select>
+      </div>
+      <span>The selected movie is: </span>
+      <span class="selected">-</span>
+    </form>
+    <script src="./main.js"></script>
+  </body>
+</html>
