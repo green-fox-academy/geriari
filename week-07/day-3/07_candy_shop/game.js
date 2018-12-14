@@ -33,11 +33,16 @@ const addLollypop = () => {
   }
 }
 
+const addCandyRain = () => {
+  if (numOfLollypops >= 10) {
+    candyRainRate *= 10;
+    speed.innerText = candyProductionRate;
+  }
+}
+
 createCandies.addEventListener('click', addCandy);
 buyLollypops.addEventListener('click', addLollypop);
-makeCandyRain.addEventListener('click', () => {
-  candyRainRate *= 10;
-});
+makeCandyRain.addEventListener('click', addCandyRain);
 
 const candyGenerator = () => {
   let candyProductionRate = Math.floor(numOfLollypops / 10) * candyRainRate;
