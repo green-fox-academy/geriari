@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-color: grey;
+}
+
+.container {
+  display: flex;
+}
+
+.header {
+  width: 100%;
+  background-size: cover;
+  min-height: 250px;
+  background-image: url('./images/mars250.jpg');
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+}
+
+.title {
+  color: white;
+  font-size: 40px;
+  letter-spacing: 60px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.main {
+  display: flex;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;  
+  flex-grow: 2;
+}
+
+.post {
+  box-sizing: border-box;
+  width: 500px;
+  padding: 10px;
+  margin: 1px;
+  background-color: #fff;
+  font-size: 14px;
+  color: grey;
+  display: flex;
+}
+
+.postbuttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+  padding-right: 10px;
+}
+
+.post h1 {
+  font-size: 18px;
+  display: inline;
+  color: black;
+}
+
+.post .source {
+  font-size: 10px;
+}
+
+.post a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post .submitter,
+.post .num_comments {
+  color: blue;
+}
+
+.sidebar {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
