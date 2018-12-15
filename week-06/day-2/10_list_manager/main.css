@@ -1,0 +1,28 @@
+/*
+
+* {
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  border: black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  
+}
+
+button {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
+
