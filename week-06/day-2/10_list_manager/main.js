@@ -9,9 +9,8 @@
 // 5, Check all the edge cases, no error should be printed to the console
 
 const buttons = document.querySelector('#buttons');
-var left = document.querySelectorAll('#left li');
-const right = document.querySelectorAll('#right li');
-const selectionStyle = document.createElement('class');
+let left = document.querySelectorAll('#left li');
+let right = document.querySelector('#right ul');
 let selectionPos = 1;
 
 buttons.addEventListener('click', (event) => {
@@ -25,14 +24,28 @@ buttons.addEventListener('click', (event) => {
       }
     break;
     case 'move':
+    if (left.length > 0) {
+      const itemToMove = left[selectionPos];
+      itemToMove.removeAttribute("style");
+      console.log(itemToMove);
+      right.appendChild(itemToMove);
+      //itemToMove.parentNode.removeChild(itemToMove);
+      left = document.querySelectorAll('#left li');
+      if (left.length > 0) {
+        selectionPos = 0;
+        left[selectionPos].style.backgroundColor = 'grey';
+      }
+    }
     break;
     case 'delete':
       if (left.length > 0) {
         const itemToDelete = left[selectionPos];
         itemToDelete.parentNode.removeChild(itemToDelete);
         left = document.querySelectorAll('#left li');
-        selectionPos = 0;
-        left[selectionPos].style.backgroundColor = 'grey';
+        if (left.length > 0) {
+          selectionPos = 0;
+          left[selectionPos].style.backgroundColor = 'grey';
+        }
       }
     break;
     case 'down':
