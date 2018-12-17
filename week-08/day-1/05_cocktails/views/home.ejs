@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cocktails</title>
+  </head>
+  <body>
+    <h1>Cocktails</h1>
+    <ul class = "alcohols">
+      <li><a href="/">all</a></li>
+      <% for (let i = 0; i < alcoholList.length; i ++) { %>
+      <li><a href="/?alcohol=<%= alcoholList[i] %>"><%= alcoholList[i] %></a></li>
+      <% } %>
+    </ul>
+    <ul>
+      <% for (let i = 0; i < cocktailsPassed.length; i ++) { %>
+      <li><%= cocktailsPassed[i].name %>
+      <% cocktailsPassed[i].contains.forEach(e => { %>
+        <span><%= e %> </span>
+      <% }); %>
+      <%= cocktailsPassed[i].price %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
