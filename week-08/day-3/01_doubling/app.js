@@ -2,11 +2,14 @@
 
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 8080;
 
 app.use('/assets', express.static('assets'));
+app.use(bodyParser());
+
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -52,6 +55,30 @@ app.get('/appenda/:text', (req, res) => {
     });
   } else {
     res.status(404).send;
+  }
+});
+
+app.post('/dountil/:action', (req, res) => {
+  const action = req.params.action;
+  const number = req.body.until;
+
+  let result = 1;
+  if (action === 'sum' && typeof number == 'number') {
+    result = (1 + number) * number / 2;
+    res.json({
+      "result": result
+    });
+  } else if (action === 'factor' && typeof number == 'number') {
+    for (let i = 1; i <= number; i ++) {
+      result *= i;
+    }
+    res.json({
+      "result": result
+    });
+  } else if (typeof number != 'number'){
+    res.json({
+      "error": "Please provide a number!"
+    });
   }
 });
 
