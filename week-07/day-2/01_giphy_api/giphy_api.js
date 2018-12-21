@@ -12,7 +12,6 @@ httpRequest.onreadystatechange = () => {
   if (httpRequest.readyState === XMLHttpRequest.DONE) {
     if (httpRequest.status === 200) {
       const images = JSON.parse(httpRequest.responseText).data;
-      //console.log(images[0]);
       const mybody = document.querySelector('body');
       for (let i = 0; i < images.length; i ++) {
         let actualImage = document.createElement('img');
