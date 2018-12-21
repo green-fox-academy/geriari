@@ -1,35 +1,35 @@
-const xhr = new XMLHttpRequest();
-xhr.open('GET', '/books');
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    const res = JSON.parse(xhr.responseText);
-    listBooks(res);
-  }
-}
-xhr.send();
+'use strict'
 
-listBooks = (data) => {
-  const placeOfBooksList = document.querySelector('#booklist');
-  data.forEach(book => {
-    const bookName = document.createElement('p');
-    bookName.textContent = book.book_name;
-    placeOfBooksList.appendChild(bookName);
-  });
-}
-
-const fullXhr = new XMLHttpRequest();
-fullXhr.open('GET', '/booksfulldata');
-fullXhr.onload = () => {
-  if (fullXhr.status === 200) {
-    const res = JSON.parse(fullXhr.responseText);
+const Xhr = new XMLHttpRequest();
+Xhr.open('GET', '/booksfulldata');
+Xhr.onload = () => {
+  if (Xhr.status === 200) {
+    const res = JSON.parse(Xhr.responseText);
     listBooksFullData(res);
   }
 }
-fullXhr.send();
+Xhr.send();
 
-//todo: megírni a /booksfulldata táblázat kiírását (html-ben)
-listBooksFullData = (data) => {
+const select = document.querySelector('select');
+const input = document.querySelector('input');
+select.addEventListener('change', (event) => {
+  input.setAttribute("name", event.target.value);
+});
+
+const submit = document.querySelector('button');
+submit.addEventListener('click', (event) => {
+  event.preventDefault();
+  const queryKey = input.name;
+  const queryValue = input.value;
+  Xhr.open('GET', `/booksfulldata?${queryKey}=${queryValue}` );
+  Xhr.send();
+});
+
+const listBooksFullData = (data) => {
   const tableDiv = document.querySelector('table');
+  while (tableDiv.firstChild) {
+    tableDiv.removeChild(tableDiv.firstChild);
+  }
   const tr = document.createElement('tr');
   const thTitle = document.createElement('th');
   const thAuthor = document.createElement('th');
