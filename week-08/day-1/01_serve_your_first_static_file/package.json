@@ -2,10 +2,9 @@
   "name": "01_serve_your_first_static_file",
   "version": "1.0.0",
   "description": "",
-  "main": "01_serve_your_first_static_file.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +12,5 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4"
   },
-  "devDependencies": {
-    "nodemon": "^1.18.9"
-  }
+  "devDependencies": {}
 }
