@@ -21,3 +21,5 @@ export function countLetters(text: string): Object {
   }
   return dictionary;
 } 
+
+console.log(countLetters('friday finally'));
