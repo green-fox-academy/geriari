@@ -8,8 +8,24 @@
 </head>
 <body>
   <h1>Bookstore frontend</h1>
-  <div id="booklist"></div>
-  <table></table>
+  <form action="/booksfulldata" method="get">
+    <select>
+      <option value="category">Category</option>
+      <option value="publisher">Publisher</option>
+      <option value="plt">Price lower than</option>
+      <option value="pgt">Price greater than</option>
+    </select>
+    <div>
+      <label for="value">Value</label>
+      <input type="text" id="value" name="category" />
+    <div>
+    <div class="button">
+      <button>Filter books</button>
+    </div>
+  </form>
+  <div id="booklist">
+    <table></table>
+  </div>
   <script src="./static/script.js"></script>
 </body>
 </html>
