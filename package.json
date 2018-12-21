@@ -4,7 +4,8 @@
   "description": "My previous repos<br/> <br/> [hello-world-original repo](https://github.com/geriari/hello-world-original)<br/> [hello-world repo](https://github.com/geriari/hello-world)<br/> [patchwork repo](https://github.com/geriari/patchwork)<br/> [git-lesson-repo](https://github.com/geriari/git-lesson-repository)<br/> [rueppellii-really syllabus repo](https://github.com/green-fox-academy/really-syllabus)<br/> [my first webpage's repo](https://github.com/geriari/geriari.github.io)<br/> [my first webpage](https://geriari.github.io)",
   "main": "index.js",
   "dependencies": {
-    "@types/node": "^10.12.5"
+    "@types/node": "^10.12.5",
+    "nodemon": "^1.18.9"
   },
   "devDependencies": {
     "tape": "^4.9.1"
