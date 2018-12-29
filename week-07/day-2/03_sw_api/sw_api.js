@@ -1,50 +1,70 @@
 'use strict'
 
 const xhr = new XMLHttpRequest();
-let url = 'https://swapi.co/api/';
-let characters = [];
-let numberOfCharacters = 0;
-
-xhr.onload = () => {
-  if (xhr.status === 200) {
-    const response = JSON.parse(xhr.responseText);
-    numberOfCharacters = response.count;
-  }
-};
-xhr.open('GET', `${url}people/`, false);
-xhr.send();
-console.log(numberOfCharacters);
-
-let requests = new Array();
-
-for (let i = 1; i <= numberOfCharacters; i ++) {
-  requests[i] = new XMLHttpRequest();
-  requests[i].open('GET', `${url}people/${i}/`, true);
-  requests[i].onload = () => {
-    if (requests[i].status === 200) {
-      characters[i] = JSON.parse(requests[i].response);
-      console.log(characters[i]);
-      console.log(typeof characters[i]);
-      console.log(characters[i].name);
-    }
-  };
-  requests[i].send();
-}
-
+const url = 'https://swapi.co/api/';
 const myForm = document.querySelector('form');
 const characterList = document.querySelector('#characterlist');
 const filmList = document.querySelector('#filmlist');
 
 myForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  const value = myForm.querySelector('input[type="text"]').value;
-  console.log(value);
-  console.log(characters[2].name);
-  for (let i = 0; i < characters.length -1; i ++) {
-    if (characters[i].name.indexOf(value) !== -1) { // erre a sorja ki az undefined hibát
-      let character = document.createElement('p');
-      character.innerText = characters[i].name;
-      characterList.appendChild(character);
+  clearCharacterList();
+  clearFilmList();
+  const searchedCharacter = myForm.querySelector('input[type="text"]').value;
+  xhr.open('GET', `${url}people/?search=${searchedCharacter}`);
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      const response = JSON.parse(xhr.responseText);
+      pushCharactersToDom(response);
     }
   }
+  xhr.send();
 });
+
+characterList.addEventListener('click', (event) => {
+  event.preventDefault();
+  const selectedCharacter = event.target.innerText;
+  console.log(selectedCharacter);
+  xhr.open('GET', `${url}people/?search=${selectedCharacter}`);
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      const response = JSON.parse(xhr.responseText);
+      pushFilmsToDom(response);
+    }
+  }
+  xhr.send();
+})
+
+const clearCharacterList = () => {
+  characterList.innerHTML = '';
+}
+
+const clearFilmList = () => {
+  filmList.innerHTML = '';
+}
+
+const pushCharactersToDom = (response) => {
+  response.results.forEach(character => {
+    let characterName = character.name;
+    let characterElement = document.createElement('p');
+    characterElement.innerText = characterName;
+    characterList.appendChild(characterElement);
+  });
+}
+
+const pushFilmsToDom = (response) => {
+  response.results[0].films.forEach(film => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', film);
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        let filmResponse = JSON.parse(xhr.responseText);
+        let filmTitle = filmResponse.title;
+        let filmElement = document.createElement('p');
+        filmElement.innerText = filmTitle;
+        filmList.appendChild(filmElement);
+      }
+    }
+    xhr.send();
+  });
+}
