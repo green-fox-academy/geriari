@@ -1,5 +1,22 @@
 * {
   margin: 0;
   padding: 0;
-  display: border-box;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  background-color: grey;
+  align-content: center;
+}
+
+#container {
+  display: flex;
+}
+
+#characterlist, #filmlist {
+  width: 400px;
+  height: 600px;
+  background-color: lightgrey;
+  margin: 30px;
 }
