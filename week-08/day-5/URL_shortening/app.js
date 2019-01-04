@@ -68,36 +68,38 @@ app.get('/api/links', (req, res) => {
 });
 
 app.delete('/api/links/:id', (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
   const { secretCode } = req.body;
   conn.query('SELECT * FROM urls;', (err, rows) => {
     if (err) {
       console.log(err.message);
       res.status(500).json({
-        error: 'Internal server error'
+        error: 'internal server error'
       });
       return;
     }
-    if (rows.find(data => data.id === id) && rows.find(data => data.secretCode === secretCode)) {
-      conn.query(`DELETE FROM urls WHERE id = ${id};`, (err, data) => {
+    const result = rows.find(row => row.id == id);
+    if (result === undefined) {
+      res.status(404).json({
+        error: "id doesn't exist"
+      });
+    } else if (result.secretCode != secretCode) {
+      res.status(403).json({
+        error: "secret code doesn't match"
+      });
+    } else {
+      conn.query(`DELETE FROM urls WHERE id = ${id};`, (err, rows) => {
         if (err) {
           console.log(err.message);
           res.status(500).json({
-            error: 'Internal server error'
+            error: 'internal server error'
           });
           return;
+        } else {
+          res.status(204).json({
+            success: 'deleted item'
+          });
         }
-        res.status(204).json({
-          message: 'Succesfully deleted'
-        });
-      });
-    } else if (rows.find(data => data.id === id) && rows.find(data => data.secretCode !== secretCode)) {
-      res.status(403).json({
-        message: 'wrong secretCode' 
-      });
-    } else {
-      res.status(404).json({
-        error: "id doesn't exist"
       });
     }
   });
