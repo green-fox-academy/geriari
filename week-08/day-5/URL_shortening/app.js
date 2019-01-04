@@ -41,19 +41,51 @@ app.post('/api/links', (req, res) => {
   });
 });
 
-//todo: why is this not working???
 app.get('/a/:alias', (req, res) => {
-  const sqlQueryHitCount = `UPDATE urls SET hitCount = hitCount + 1 WHERE alias = ?;`;
-  conn.query(sqlQueryHitCount, [req.params.alias], (err, data) => {
+  const { alias } = req.params;
+  conn.query('SELECT * FROM urls;', (err, rows) => {
     if (err) {
-      res.status(404);
-    } else {
-      const sqlQueryUrl = `SELECT url FROM urls WHERE alias = ?;`;
-      conn.query(sqlQueryUrl, [req.params.alias], (err, data) => {
-        res.status(200).json(data);
+      console.log(err.message);
+      res.status(500).json({
+        error: 'internal server error'
       });
+      return;
+    } else {
+      const result = rows.find(row => row.alias == alias);
+      if (result === undefined) {
+        res.status(404).json({
+          error: "alias doesn't exist"
+        });
+        return;
+      } else {
+        conn.query(`UPDATE urls SET hitCount = hitCount + 1 WHERE alias = '${alias}';`, (err, rows) => {
+          if (err) {
+            console.log(err.message);
+            res.status(500).json({
+              error: 'internal server error'
+            });
+            return;
+          } else {
+            const redirUrl = result.url;
+            res.status(301).redirect(redirUrl);
+          }
+        });
+      }
     }
   });
+
+
+  // const sqlQueryHitCount = `UPDATE urls SET hitCount = hitCount + 1 WHERE alias = ?;`;
+  // conn.query(sqlQueryHitCount, [req.params.alias], (err, data) => {
+  //   if (err) {
+  //     res.status(404);
+  //   } else {
+  //     const sqlQueryUrl = `SELECT url FROM urls WHERE alias = ?;`;
+  //     conn.query(sqlQueryUrl, [req.params.alias], (err, data) => {
+  //       res.status(200).json(data);
+  //     });
+  //   }
+  // });
 });
 
 app.get('/api/links', (req, res) => {
