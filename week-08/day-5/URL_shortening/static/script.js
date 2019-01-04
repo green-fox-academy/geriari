@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const { url, alias } = form.elements;
 const h1 = document.querySelector('h1');
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   postXhr = new XMLHttpRequest();
