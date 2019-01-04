@@ -41,16 +41,17 @@ app.post('/api/links', (req, res) => {
   });
 });
 
-
+//todo: why is this not working???
 app.get('/a/:alias', (req, res) => {
   const sqlQueryHitCount = `UPDATE urls SET hitCount = hitCount + 1 WHERE alias = ?;`;
   conn.query(sqlQueryHitCount, [req.params.alias], (err, data) => {
     if (err) {
       res.status(404);
     } else {
-      console.log(data); //csak egy OKPacketet kapok vissza, még ki kell szedni az url-t
-      res.status(200);
-      // If the alias exists it should increment the hit count and redirect to the URL 
+      const sqlQueryUrl = `SELECT url FROM urls WHERE alias = ?;`;
+      conn.query(sqlQueryUrl, [req.params.alias], (err, data) => {
+        res.status(200).json(data);
+      });
     }
   });
 });
@@ -67,10 +68,39 @@ app.get('/api/links', (req, res) => {
 });
 
 app.delete('/api/links/:id', (req, res) => {
-// The secret code should be in the request's body in JSON format
-// If it doesn't exists respond with 404 status code
-// If it exists but the provided secret code doesn't match respond with 403 status code
-// If it exists and the provided secret code matches delete the entry from the database and respond with 204 status code
+  const id = req.params.id;
+  const { secretCode } = req.body;
+  conn.query('SELECT * FROM urls;', (err, rows) => {
+    if (err) {
+      console.log(err.message);
+      res.status(500).json({
+        error: 'Internal server error'
+      });
+      return;
+    }
+    if (rows.find(data => data.id === id) && rows.find(data => data.secretCode === secretCode)) {
+      conn.query(`DELETE FROM urls WHERE id = ${id};`, (err, data) => {
+        if (err) {
+          console.log(err.message);
+          res.status(500).json({
+            error: 'Internal server error'
+          });
+          return;
+        }
+        res.status(204).json({
+          message: 'Succesfully deleted'
+        });
+      });
+    } else if (rows.find(data => data.id === id) && rows.find(data => data.secretCode !== secretCode)) {
+      res.status(403).json({
+        message: 'wrong secretCode' 
+      });
+    } else {
+      res.status(404).json({
+        error: "id doesn't exist"
+      });
+    }
+  });
 });
 
 app.listen(PORT, () => {
