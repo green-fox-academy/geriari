@@ -73,19 +73,6 @@ app.get('/a/:alias', (req, res) => {
       }
     }
   });
-
-
-  // const sqlQueryHitCount = `UPDATE urls SET hitCount = hitCount + 1 WHERE alias = ?;`;
-  // conn.query(sqlQueryHitCount, [req.params.alias], (err, data) => {
-  //   if (err) {
-  //     res.status(404);
-  //   } else {
-  //     const sqlQueryUrl = `SELECT url FROM urls WHERE alias = ?;`;
-  //     conn.query(sqlQueryUrl, [req.params.alias], (err, data) => {
-  //       res.status(200).json(data);
-  //     });
-  //   }
-  // });
 });
 
 app.get('/api/links', (req, res) => {
