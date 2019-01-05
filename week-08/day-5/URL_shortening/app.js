@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.post('/api/links', (req, res) => {
   const { url, alias } = req.body;
-  const secretCode = Math.floor(Math.random() * 10000);
+  const secretCode = Math.floor(1000 + Math.random() * 9000);
   const sqlQueryInsert = `INSERT INTO urls (url, alias, hitCount, secretCode) VALUES ('${url}', '${alias}', 0, ${secretCode});`;
   conn.query(sqlQueryInsert, (err, data) => {
     if (err) {
