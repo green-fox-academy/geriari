@@ -1,0 +1,38 @@
+body {
+  background-color: #0366d6;
+  font-family: 'Roboto', sans-serif;
+}
+
+table {
+  width: 98%;
+  margin: 30px auto;
+}
+
+th, td {
+  padding: 10px;
+}
+
+th {
+  background-color: #1c1f25;
+  color: #d3dae2;
+  font-size: 30px;
+  text-align: left;
+  font-weight: normal;
+}
+
+tr {
+  color: #656b84;
+  font-size: 22px;
+}
+
+td[data-currency="usd"]::before {
+  content: '$ ';
+}
+
+tr:nth-child(2n) {
+  background-color: #ebebeb;
+}
+
+tr:nth-child(2n+1) {
+  background-color: #ffffff;
+}
