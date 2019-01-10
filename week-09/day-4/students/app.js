@@ -66,7 +66,7 @@ app.put('/', (req, res) => {
         message: 'All fields are required'
       });
     } else {
-      conn.query(`INSERT INTO students (id, name, sex, classname, trial_exam, foundation_exam, orientation_exam, final_exam) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name='${name}', sex='${sex}, classname='${classname}', trial_exam='${trial_exam}', foundation_exam='${foundation_exam}', orientation_exam='${orientation_exam}', final_exam='${final_exam}';`, [id, name, sex, classname, trial_exam, foundation_exam, orientation_exam, final_exam], (err, rows) => {
+      conn.query(`INSERT INTO students (id, name, sex, classname, trial_exam, foundation_exam, orientation_exam, final_exam) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE name='${name}', sex='${sex}', classname='${classname}', trial_exam='${trial_exam}', foundation_exam='${foundation_exam}', orientation_exam='${orientation_exam}', final_exam='${final_exam}';`, [id, name, sex, classname, trial_exam, foundation_exam, orientation_exam, final_exam], (err, rows) => {
         if (err) {
           console.log(err.message);
           res.status(500).json({
@@ -75,10 +75,17 @@ app.put('/', (req, res) => {
           return;
         }
         console.log(rows);
-        res.json({
-          message: 'Student succesfully added',
-          id: rows.insertId
-        });
+        if (rows.affectedRows = 2) {
+          res.json({
+            message: 'Student succesfully modified',
+            id: rows.insertId
+          });
+        } else {
+          res.json({
+            message: 'Student succesfully added',
+            id: rows.insertId
+          });
+        }
       });
     }
 });
