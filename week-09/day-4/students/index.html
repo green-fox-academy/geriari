@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./static/styles.css">
+  <title>Students</title>
+</head>
+<body>
+  <h1>Add new student</h1>
+  <form>
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name"><br>
+    <br>
+    <label>Sex</label><br>
+    <input type="radio" id="male" value="male" name="sex">
+    <label for="male">male</label><br>
+    <input type="radio" id="female" value="female" name="sex">
+    <label for="female">female</label><br>
+    <br>
+    <label for="classname">Class</label>
+    <select id="classname" name="classname">
+      <option value="java">Java</option>
+      <option value="typescript">Typescript</option>
+      <option value="c++">C++</option>
+    </select><br>
+    <br>
+    <label>Achievements</label><br>
+    <input type="checkbox" id="trial" name="trial_exam" value="1">
+    <label for="trial">Trial exam</label><br>
+    <input type="checkbox" id="foundation" name="foundation_exam" value="1">
+    <label for="foundation">Foundation exam</label><br>
+    <input type="checkbox" id="orientation" name="orientation_exam" value="1">
+    <label for="orientation">Orientation exam</label><br>
+    <input type="checkbox" id="final" name="final_exam" value="1">
+    <label for="final">Final exam</label><br>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="./static/script.js"></script>
+</body>
+</html>
