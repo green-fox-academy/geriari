@@ -1,5 +1,5 @@
 public class F35 extends Aircraft {
-  Aircraft() {
+  F35() {
     super(12, 50);
   }
 }

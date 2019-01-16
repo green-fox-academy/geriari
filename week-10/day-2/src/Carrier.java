@@ -1,5 +1,7 @@
+import java.util.ArrayList;
+
 public class Carrier {
-  private Aircraft[] aircrafts = new Aircraft[100];
+  private ArrayList<Aircraft> aircrafts = new ArrayList<>();
   private int storeOfAmmo;
   private int health;
 
@@ -9,7 +11,7 @@ public class Carrier {
   }
 
   public void add(Aircraft aircraft) {
-    //how to add to an array
+    aircrafts.add(aircraft);
   }
 
   public void fill() {
@@ -43,7 +45,7 @@ public class Carrier {
   }
 
   public String getStatus() {
-    String status = "HP: " + this.health + ", Aircraft count: " + this.aircrafts.length + ", Ammo storage: " + this.storeOfAmmo + ", Total damage: " + this.getAllDamage() + ", Aircrafts: ";
+    String status = "HP: " + this.health + ", Aircraft count: " + this.aircrafts.size() + ", Ammo storage: " + this.storeOfAmmo + ", Total damage: " + this.getAllDamage() + ", Aircrafts: ";
     for (Aircraft aircraft: this.aircrafts) {
       status = status + "\n" + aircraft.getStatus();
     }

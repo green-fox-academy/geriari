@@ -1,4 +1,4 @@
-public class Aircraft {
+public abstract class Aircraft {
   protected int maxAmmo;
   protected int baseDamage;
   protected int currentAmmo = 0;
