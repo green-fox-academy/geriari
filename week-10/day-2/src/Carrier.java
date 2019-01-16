@@ -14,27 +14,39 @@ public class Carrier {
 
   public void fill() {
     if (this.storeOfAmmo == 0) {
-      //throw 'Carrier is out of ammo.'
+      System.out.println("Carrier is out of ammo.");
     }
-    
-  }
-
-  /*
-    fill(): void {
-    if (this.storeOfAmmo === 0) {
-      throw 'Carrier is out of ammo.';
-    }
-    this.aircrafts.forEach(aircraft => {
+    for (Aircraft aircraft: this.aircrafts) {
       if (aircraft.isPriority() && this.storeOfAmmo > 0) {
         this.storeOfAmmo = aircraft.refill(this.storeOfAmmo);
       }
-    });
-    this.aircrafts.forEach(aircraft => {
+    }
+    for (Aircraft aircraft: this.aircrafts) {
       if (!aircraft.isPriority() && this.storeOfAmmo > 0) {
         this.storeOfAmmo = aircraft.refill(this.storeOfAmmo);
       }
-    });
+    }
   }
 
-   */
+  public void fight(Carrier opponent) {
+    for (Aircraft aircraft: this.aircrafts) {
+      opponent.health -= aircraft.fight();
+    }
+  }
+
+  public int getAllDamage() {
+    int damage = 0;
+    for (Aircraft aircraft: this.aircrafts) {
+      damage += aircraft.getAllDamage();
+    }
+    return damage;
+  }
+
+  public String getStatus() {
+    String status = "HP: " + this.health + ", Aircraft count: " + this.aircrafts.length + ", Ammo storage: " + this.storeOfAmmo + ", Total damage: " + this.getAllDamage() + ", Aircrafts: ";
+    for (Aircraft aircraft: this.aircrafts) {
+      status = status + "\n" + aircraft.getStatus();
+    }
+    return this.health <=0 ? status : "It's dead, Jim :(";
+  }
 }
