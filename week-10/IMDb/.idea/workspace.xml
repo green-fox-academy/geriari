@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/../../week-07/day-4/01_login_form/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-07/day-4/01_login_form/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../week-08/day-4/01_bookstore_endpoints/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-08/day-4/01_bookstore_endpoints/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../week-08/day-4/01_bookstore_endpoints/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../week-08/day-4/01_bookstore_endpoints/static/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IMDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IMDb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../day-2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../day-2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../day-2/day-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../day-2/day-2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../day-2/src/Logic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../day-2/src/Logic.java" afterDir="false" />
@@ -26,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/IMDb.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="35" column="78" selection-start-line="35" selection-start-column="78" selection-end-line="35" selection-end-column="78" />
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,6 +43,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <dirStrings>
+      <dir>$PROJECT_DIR$/src</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -110,7 +116,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547736433632" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547737847948" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -154,12 +160,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547730694744</updated>
-      <workItem from="1547730705705" duration="4919000" />
+      <workItem from="1547730705705" duration="5669000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4919000" />
+    <option name="totallyTimeSpent" value="5669000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -207,10 +213,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar!/org/openqa/selenium/remote/ErrorHandler.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IMDb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="35" column="78" selection-start-line="35" selection-start-column="78" selection-end-line="35" selection-end-column="78" />
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

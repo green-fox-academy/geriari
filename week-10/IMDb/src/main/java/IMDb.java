@@ -31,8 +31,18 @@ public class IMDb {
     //String firstResultText = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).getText();
     //System.out.println(firstResultText);
 
-    driver.findElement(By.xpath("//*[@id=\\\"main\\\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).click();
+    driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).click();
 
-    driver.findElement(By.className("wl-ribbon standalone not-inWL")).click();
+    //why is it not working?
+    //driver.findElement(By.className("wl-ribbon standalone not-inWL")).click();
+    driver.findElement(By.xpath("//*[@id=\"title-overview-widget\"]/div[1]/div[2]/div/div[2]/div[1]/div[1]/div")).click();
+
+    //why do i have to define the same DOM place again?
+    WebElement searchInput2 = driver.findElement(By.id("navbar-query"));
+    searchInput2.sendKeys("Fargo");
+    searchInput2.sendKeys(Keys.RETURN);
+
+    driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).click();
+
   }
 }
