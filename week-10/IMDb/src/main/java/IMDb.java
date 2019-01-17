@@ -15,6 +15,7 @@ public class IMDb {
 
     driver.get("https://www.imdb.com");
 
+    //sign in
     driver.findElement(By.className("signin-imdb-text")).click();
     driver.findElement(By.xpath("//*[@id=\"signin-options\"]/div/div[1]/a[1]")).click();
     WebElement emailInput = driver.findElement(By.id("ap_email"));
@@ -23,6 +24,7 @@ public class IMDb {
     passwordInput.sendKeys("Greenfox");
     driver.findElement(By.id("signInSubmit")).click();
 
+    //search
     WebElement searchInput = driver.findElement(By.id("navbar-query"));
     searchInput.sendKeys("Bron");
     searchInput.sendKeys(Keys.RETURN);
@@ -31,18 +33,36 @@ public class IMDb {
     //String firstResultText = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).getText();
     //System.out.println(firstResultText);
 
+    //select the first from the result list
     driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).click();
 
+    //add to watchlist
     //why is it not working?
     //driver.findElement(By.className("wl-ribbon standalone not-inWL")).click();
     driver.findElement(By.xpath("//*[@id=\"title-overview-widget\"]/div[1]/div[2]/div/div[2]/div[1]/div[1]/div")).click();
 
+    //search another one
     //why do i have to define the same DOM place again?
     WebElement searchInput2 = driver.findElement(By.id("navbar-query"));
     searchInput2.sendKeys("Fargo");
     searchInput2.sendKeys(Keys.RETURN);
 
+    //select the first from the list
     driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/table/tbody/tr[1]/td[2]/a")).click();
+
+    //add to watchlist
+    driver.findElement(By.xpath("//*[@id=\"title-overview-widget\"]/div[1]/div[2]/div/div[2]/div[1]/div[1]/div")).click();
+
+    //go to my watchlist
+    //why is it not working?
+    //driver.findElement(By.className("navCategory singleLine watchlist")).click();
+    driver.findElement(By.xpath("//*[@id=\"navWatchlistMenu\"]/p/a")).click();
+
+    //sort descending
+    driver.findElement(By.xpath("//*[@id=\"center-1-react\"]/div/div[2]/div[1]/div[1]/div[1]/button/span")).click();
+
+    //sort ascending
+
 
   }
 }
