@@ -11,7 +11,7 @@ public class IMDb {
     driver.get("https://www.imdb.com");
 
     SignIn.signIn(driver);
-
+/*
     int numberOfResults = Search.search(driver, "Bron");
 
     Select1st.select(driver);
@@ -24,14 +24,16 @@ public class IMDb {
     Select1st.select(driver);
 
     AddToWatchList.addToWatchList(driver);
-
+*/
     GoToWatchList.goToWatchList(driver);
 
     SortBy.sortBy(driver, "IMDb Rating");
 
     ToggleOrder.toggleOrder(driver);
 
-    //Logout.logout(driver);
+    DeleteAllFromWatchList.deleteAllFromWatchList(driver); //doesn't work yet
+
+    Logout.logout(driver); //doesn't work yet
 
     //driver.quit();
 
